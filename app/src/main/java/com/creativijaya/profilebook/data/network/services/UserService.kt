@@ -1,8 +1,9 @@
 package com.creativijaya.profilebook.data.network.services
 
 import com.creativijaya.profilebook.data.network.responses.base.BasePaginationResponse
-import com.creativijaya.profilebook.data.network.responses.main.MainProfileResponse
+import com.creativijaya.profilebook.data.network.responses.user.ProfileResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface UserService {
@@ -11,6 +12,11 @@ interface UserService {
     suspend fun getProfile(
         @Query("page") page: Int,
         @Query("limit") pageSize: Int = 20
-    ): BasePaginationResponse<MainProfileResponse>
+    ): BasePaginationResponse<ProfileResponse>
+
+    @GET("user/{user_id}")
+    suspend fun getProfileDetail(
+        @Path("user_id") userId: String
+    ): ProfileResponse
 
 }

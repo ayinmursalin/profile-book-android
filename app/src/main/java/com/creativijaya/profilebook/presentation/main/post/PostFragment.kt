@@ -12,4 +12,9 @@ class PostFragment : BaseFragment(R.layout.fragment_post) {
     override fun invalidate() {
 
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = PostFragment()
+    }
 }

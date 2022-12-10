@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.main.detailprofile.DetailProfileFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_detail_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:elevation="@dimen/size_0dp">
+
+        <Toolbar
+            android:id="@+id/toolbar_detail_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:navigationIcon="@drawable/ic_back">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_x6"
+                android:paddingVertical="@dimen/space_x1">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_search_post"
+                        android:paddingVertical="@dimen/space_x1" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </FrameLayout>
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_detail_profile_picture"
+                android:layout_width="@dimen/profile_picture_height"
+                android:layout_height="@dimen/profile_picture_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/space_x4"
+                app:shapeAppearanceOverlay="@style/CommonCircleImageView"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/tv_detail_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_x2"
+                android:layout_marginTop="@dimen/space_x2"
+                android:gravity="center"
+                android:textColor="@color/text_color_primary"
+                android:textSize="@dimen/text_size_h6"
+                tools:text="M Moersalin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_x2"
+                android:layout_marginTop="@dimen/space_x3"
+                android:background="@drawable/bg_rounded_white"
+                android:orientation="vertical"
+                android:padding="@dimen/space_x2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_gender"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/tv_detail_profile_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x0_half"
+                    android:textColor="@color/text_color_primary"
+                    android:textSize="@dimen/text_size_h6"
+                    tools:text="Male" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x1_half"
+                    android:text="@string/text_birth_date"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/tv_detail_profile_birthdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x0_half"
+                    android:textColor="@color/text_color_primary"
+                    android:textSize="@dimen/text_size_h6"
+                    tools:text="13 March 1997" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x1_half"
+                    android:text="@string/text_join_from"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/tv_detail_profile_joinfrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x0_half"
+                    android:textColor="@color/text_color_primary"
+                    android:textSize="@dimen/text_size_h6"
+                    tools:text="07 Mar 2020" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x1_half"
+                    android:text="@string/text_email"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/tv_detail_profile_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x0_half"
+                    android:textColor="@color/text_color_primary"
+                    android:textSize="@dimen/text_size_h6"
+                    tools:text="ayinmursalin12@gmail.com" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x1_half"
+                    android:text="@string/text_address"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/tv_detail_profile_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x0_half"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/text_color_primary"
+                    android:textSize="@dimen/text_size_h6"
+                    tools:text="Jln. Abcdefg, No. 07, Palembang" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

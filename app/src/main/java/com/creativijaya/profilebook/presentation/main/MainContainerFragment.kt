@@ -1,15 +1,19 @@
 package com.creativijaya.profilebook.presentation.main
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.creativijaya.profilebook.R
 import com.creativijaya.profilebook.databinding.FragmentContainerBinding
+import com.creativijaya.profilebook.presentation.main.favorite.FavoriteFragment
+import com.creativijaya.profilebook.presentation.main.post.PostFragment
+import com.creativijaya.profilebook.presentation.main.profilebook.ProfileBookFragment
 import com.creativijaya.profilebook.util.widget.viewBinding
+import com.google.android.material.navigation.NavigationBarView
 
-class MainContainerFragment : Fragment(R.layout.fragment_container) {
+class MainContainerFragment : Fragment(R.layout.fragment_container),
+    NavigationBarView.OnItemSelectedListener {
 
     private val binding: FragmentContainerBinding by viewBinding()
 
@@ -20,10 +24,45 @@ class MainContainerFragment : Fragment(R.layout.fragment_container) {
     }
 
     private fun setupLayout() {
-        val navController = (childFragmentManager
-            .findFragmentById(R.id.main_fragment_container_view) as NavHostFragment)
-            .navController
+        with(binding) {
+            navigateToProfileBookPage()
+            mainNavMenu.setOnItemSelectedListener(this@MainContainerFragment)
+        }
+    }
 
-        binding.mainNavMenu.setupWithNavController(navController)
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.ProfileBookFragment -> navigateToProfileBookPage()
+            R.id.PostFragment -> navigateToPostPage()
+            R.id.FavoriteFragment -> navigateToFavoritePage()
+        }
+        return true
+    }
+
+    private fun navigateToProfileBookPage() {
+        childFragmentManager.beginTransaction()
+            .replace(
+                R.id.main_fragment_container_view,
+                ProfileBookFragment.newInstance()
+            )
+            .commitAllowingStateLoss()
+    }
+
+    private fun navigateToPostPage() {
+        childFragmentManager.beginTransaction()
+            .replace(
+                R.id.main_fragment_container_view,
+                PostFragment.newInstance()
+            )
+            .commitAllowingStateLoss()
+    }
+
+    private fun navigateToFavoritePage() {
+        childFragmentManager.beginTransaction()
+            .replace(
+                R.id.main_fragment_container_view,
+                FavoriteFragment.newInstance()
+            )
+            .commitAllowingStateLoss()
     }
 }

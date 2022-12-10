@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Single Module MvRx</string>
+    <string name="app_name">Profile Books</string>
 
     <string name="common_text_save">Save</string>
     <string name="common_text_search">Keyword</string>
@@ -11,4 +11,10 @@
     <string name="common_text_select_time">Select Time</string>
     <string name="common_text_select_year">Select Year</string>
     <string name="text_profile_book">Profile Book</string>
+    <string name="hint_search_post">Search Post</string>
+    <string name="text_gender">Gender</string>
+    <string name="text_birth_date">Date of Birth</string>
+    <string name="text_join_from">Join From</string>
+    <string name="text_email">Email</string>
+    <string name="text_address">Address</string>
 </resources>

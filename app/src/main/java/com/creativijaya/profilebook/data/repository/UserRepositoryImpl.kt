@@ -14,4 +14,7 @@ class UserRepositoryImpl(
         service.getProfile(page, pageSize)
     }
 
+    override suspend fun getProfileDetail(userId: String) = successOrError {
+        service.getProfileDetail(userId)
+    }
 }

@@ -6,22 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".presentation.main.MainContainerFragment">
 
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:id="@+id/main_fragment_container_view"
-        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_0dp"
         app:layout_constraintBottom_toTopOf="@id/main_nav_menu"
-        app:defaultNavHost="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_main_container" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_nav_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemIconTint="@color/color_navigation"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_main_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

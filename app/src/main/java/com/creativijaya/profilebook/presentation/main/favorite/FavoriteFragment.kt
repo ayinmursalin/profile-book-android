@@ -12,4 +12,9 @@ class FavoriteFragment : BaseFragment(R.layout.fragment_favorite) {
     override fun invalidate() {
 
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = FavoriteFragment()
+    }
 }

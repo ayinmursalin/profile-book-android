@@ -8,5 +8,18 @@
         android:id="@+id/mainContainerFragment"
         android:name="com.creativijaya.profilebook.presentation.main.MainContainerFragment"
         android:label="main_fragment_container"
-        tools:layout="@layout/fragment_container" />
+        tools:layout="@layout/fragment_container" >
+        <action
+            android:id="@+id/action_mainContainerFragment_to_detailProfileFragment"
+            app:destination="@id/detailProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProfileFragment"
+        android:name="com.creativijaya.profilebook.presentation.main.detailprofile.DetailProfileFragment"
+        tools:layout="@layout/fragment_detail_profile"
+        android:label="DetailProfileFragment" >
+        <argument
+            android:name="mavericks:arg"
+            app:argType="com.creativijaya.profilebook.presentation.main.detailprofile.DetailProfileArgs" />
+    </fragment>
 </navigation>

@@ -53,15 +53,16 @@
     </style>
 
     <!--Text Input Layout-->
-    <style name="CommonTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxCornerRadiusTopStart">@dimen/space_x3</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/space_x3</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/space_x3</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/space_x3</item>
+    <style name="CommonTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxCornerRadiusTopStart">@dimen/space_x1</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/space_x1</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/space_x1</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/space_x1</item>
         <item name="boxBackgroundColor">@color/white</item>
-        <item name="boxStrokeColor">@color/white</item>
-        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeColor">@color/soft_gray</item>
+        <item name="boxStrokeWidth">@dimen/size_1dp</item>
         <item name="startIconTint">@color/soft_gray</item>
+        <item name="minHeight">0dp</item>
     </style>
 
     <!--Image View-->

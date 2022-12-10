@@ -9,5 +9,17 @@ data class ProfileDto(
     val firstName: String = "",
     val lastName: String = "",
     val title: String = "",
-    val picture: String = ""
-) : Parcelable
+    val picture: String = "",
+    val gender: String = "",
+    val phone: String = "",
+    val dateOfBirth: String = "",
+    val updatedDate: String = "",
+    val email: String = "",
+    val registerDate: String = "",
+    val location: LocationDto = LocationDto(),
+) : Parcelable {
+    val address: String
+        get() {
+            return "${location.street}, ${location.city}, ${location.city}, ${location.state}, ${location.country}"
+        }
+}

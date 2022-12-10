@@ -2,6 +2,8 @@ package com.creativijaya.profilebook.presentation.main.profilebook
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.mvrx.Fail
@@ -15,6 +17,8 @@ import com.creativijaya.profilebook.databinding.ItemProfileBookBinding
 import com.creativijaya.profilebook.databinding.ItemProfileBookLoadingBinding
 import com.creativijaya.profilebook.domain.models.user.ProfileDto
 import com.creativijaya.profilebook.presentation.base.BaseFragment
+import com.creativijaya.profilebook.presentation.main.MainContainerFragmentDirections
+import com.creativijaya.profilebook.presentation.main.detailprofile.DetailProfileArgs
 import com.creativijaya.profilebook.util.ext.loadImageUrl
 import com.creativijaya.profilebook.util.ext.toGone
 import com.creativijaya.profilebook.util.ext.toVisible
@@ -44,7 +48,8 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
             itemLayoutRes = R.layout.item_profile_book,
             loadingLayoutRes = R.layout.item_profile_book_loading,
             onBind = this::onBindProfileItem,
-            onBindLoading = this::onBindLoadingItem
+            onBindLoading = this::onBindLoadingItem,
+            onClickListener = this::onProfileItemClickListener
         )
     }
 
@@ -79,9 +84,7 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
         }
     }
 
-    override fun invalidate() {
-
-    }
+    override fun invalidate() = Unit
 
     private fun onBindProfileItem(
         data: ProfileDto,
@@ -100,6 +103,17 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
         view: View
     ) = ItemProfileBookLoadingBinding.bind(view).apply {
         root.startShimmer()
+    }
+
+    private fun onProfileItemClickListener(data: ProfileDto, position: Int) {
+        parentFragment?.let {
+            val direction = MainContainerFragmentDirections
+                .actionMainContainerFragmentToDetailProfileFragment(
+                    DetailProfileArgs(userId = data.id)
+                )
+
+            NavHostFragment.findNavController(it).navigate(direction)
+        }
     }
 
     private fun subscribeToProfileBooks() {
@@ -158,6 +172,9 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
     companion object {
         private const val FIRST_PAGE = 1
         private const val SPAN_COUNT = 2
+
+        @JvmStatic
+        fun newInstance() = ProfileBookFragment()
     }
 
 }
