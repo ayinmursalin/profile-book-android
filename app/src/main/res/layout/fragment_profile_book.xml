@@ -22,6 +22,7 @@
         android:id="@+id/shimmer_profile_books"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_0dp"
+        android:layout_marginTop="@dimen/space_x1"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_profile_book_title">
@@ -34,13 +35,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_0dp"
         android:layout_marginTop="@dimen/space_x1"
-        android:visibility="gone"
         android:clipToPadding="false"
         android:padding="@dimen/size_6dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_profile_book_title"
         app:spanCount="2"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/item_profile_book"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

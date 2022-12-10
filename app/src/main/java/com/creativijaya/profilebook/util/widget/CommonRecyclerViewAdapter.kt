@@ -67,6 +67,13 @@ class CommonRecyclerViewAdapter<T : Any>(
         result.dispatchUpdatesTo(this)
     }
 
+    fun addData(newItems: List<T?>) {
+        val size = items.size
+        items.addAll(newItems)
+
+        notifyItemRangeInserted(size, newItems.size)
+    }
+
     fun showLoading() {
         items.add(null)
         notifyItemInserted(items.size)

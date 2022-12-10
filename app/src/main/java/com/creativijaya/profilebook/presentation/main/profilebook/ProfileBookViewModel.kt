@@ -11,16 +11,15 @@ class ProfileBookViewModel(
     private val getProfileBookUseCase: GetProfileBookUseCase
 ) : BaseViewModel<ProfileBookState>(initialState) {
 
-    init {
-        getProfileBook()
-    }
-
-    private fun getProfileBook() {
+    fun getProfileBook(page: Int = 1) {
         withState { state ->
             suspend {
                 getProfileBookUseCase(state.currentPage, state.pageSize)
             }.executeOnIo {
-                copy(profileBookAsync = it)
+                copy(
+                    profileBookAsync = it,
+                    currentPage = page
+                )
             }
         }
     }
