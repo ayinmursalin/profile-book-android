@@ -14,7 +14,7 @@ class CommonRecyclerViewAdapter<T : Any>(
     @LayoutRes private val itemLayoutRes: Int = 0,
     @LayoutRes private val loadingLayoutRes: Int = R.layout.item_loading,
     private val onBind: ((T, View) -> ViewBinding)? = null,
-    private val onBindWithPosition: ((T, View, Int) -> ViewBinding)? = null,
+    private val onBindLoading: ((View) -> ViewBinding)? = null,
     private val onClickListener: (T, Int) -> Unit = { _, _ -> }
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -52,6 +52,8 @@ class CommonRecyclerViewAdapter<T : Any>(
             items[position]?.let {
                 (holder as? CommonRecyclerViewAdapter<T>.ItemViewHolder)?.bind(it)
             }
+        } else if (holder.itemViewType == TYPE_LOADING) {
+            (holder as? CommonRecyclerViewAdapter<T>.LoadingViewHolder)?.bind()
         }
     }
 
@@ -89,14 +91,14 @@ class CommonRecyclerViewAdapter<T : Any>(
             onBind?.invoke(data, itemView)?.root?.setOnClickListener {
                 onClickListener.invoke(data, adapterPosition)
             }
-
-            onBindWithPosition?.invoke(data, itemView, adapterPosition)?.root?.setOnClickListener {
-                onClickListener.invoke(data, adapterPosition)
-            }
         }
     }
 
-    inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind() {
+            onBindLoading?.invoke(itemView)
+        }
+    }
 
     companion object {
         private const val TYPE_ITEM = 100

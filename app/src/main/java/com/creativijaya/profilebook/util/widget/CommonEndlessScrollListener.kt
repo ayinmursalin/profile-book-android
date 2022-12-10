@@ -9,17 +9,21 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
  * Created by Ayin on 12/12/2017.
  * https://gist.github.com/nesquena/d09dc68ff07e845cc622
  */
-abstract class CommonEndlessScrollListener(layoutManager: LayoutManager)
-    : RecyclerView.OnScrollListener() {
+abstract class CommonEndlessScrollListener(layoutManager: LayoutManager) :
+    RecyclerView.OnScrollListener() {
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private var visibleThreshold = 2
+
     // The current offset index of data you have loaded
     private var currentPage = 1
+
     // The total number of items in the dataset after the last load
     private var previousTotalItemCount = 0
+
     // True if we are still waiting for the last set of data to load.
     private var loading = true
+
     // Sets the starting page index
     private val startingPageIndex = 1
 

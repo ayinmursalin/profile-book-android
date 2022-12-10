@@ -12,6 +12,7 @@ import com.airbnb.mvrx.fragmentViewModel
 import com.creativijaya.profilebook.R
 import com.creativijaya.profilebook.databinding.FragmentProfileBookBinding
 import com.creativijaya.profilebook.databinding.ItemProfileBookBinding
+import com.creativijaya.profilebook.databinding.ItemProfileBookLoadingBinding
 import com.creativijaya.profilebook.domain.models.user.ProfileDto
 import com.creativijaya.profilebook.presentation.base.BaseFragment
 import com.creativijaya.profilebook.util.ext.loadImageUrl
@@ -27,7 +28,7 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
     private val viewModel: ProfileBookViewModel by fragmentViewModel()
 
     private val gridLayoutManager: GridLayoutManager by lazy {
-        GridLayoutManager(requireContext(), 2)
+        GridLayoutManager(requireContext(), SPAN_COUNT)
     }
 
     private val scrollListener: CommonEndlessScrollListener by lazy {
@@ -41,7 +42,9 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
     private val profileAdapter: CommonRecyclerViewAdapter<ProfileDto> by lazy {
         CommonRecyclerViewAdapter(
             itemLayoutRes = R.layout.item_profile_book,
-            onBind = this::onBindProfileItem
+            loadingLayoutRes = R.layout.item_profile_book_loading,
+            onBind = this::onBindProfileItem,
+            onBindLoading = this::onBindLoadingItem
         )
     }
 
@@ -91,6 +94,12 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
             data.firstName,
             data.lastName
         )
+    }
+
+    private fun onBindLoadingItem(
+        view: View
+    ) = ItemProfileBookLoadingBinding.bind(view).apply {
+        root.startShimmer()
     }
 
     private fun subscribeToProfileBooks() {
@@ -148,6 +157,7 @@ class ProfileBookFragment : BaseFragment(R.layout.fragment_profile_book) {
 
     companion object {
         private const val FIRST_PAGE = 1
+        private const val SPAN_COUNT = 2
     }
 
 }
