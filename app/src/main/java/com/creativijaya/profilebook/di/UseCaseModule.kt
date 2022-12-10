@@ -5,6 +5,7 @@ import com.creativijaya.profilebook.domain.usecases.user.AddFriendUsecase
 import com.creativijaya.profilebook.domain.usecases.user.CheckIsFriendUseCase
 import com.creativijaya.profilebook.domain.usecases.user.GetDetailProfileUseCase
 import com.creativijaya.profilebook.domain.usecases.user.GetProfileBookUseCase
+import com.creativijaya.profilebook.domain.usecases.user.GetUserPostUseCase
 import com.creativijaya.profilebook.domain.usecases.user.RemoveFriendUsecase
 import org.koin.dsl.module
 
@@ -32,6 +33,10 @@ val interactorModule = module {
 
     single {
         RemoveFriendUsecase(get())
+    }
+
+    single {
+        GetUserPostUseCase(get(), get(), get())
     }
 
 }

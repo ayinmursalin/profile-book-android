@@ -5,6 +5,7 @@ import com.airbnb.mvrx.ViewModelContext
 import com.creativijaya.profilebook.domain.usecases.user.AddFriendUsecase
 import com.creativijaya.profilebook.domain.usecases.user.CheckIsFriendUseCase
 import com.creativijaya.profilebook.domain.usecases.user.GetDetailProfileUseCase
+import com.creativijaya.profilebook.domain.usecases.user.GetUserPostUseCase
 import com.creativijaya.profilebook.domain.usecases.user.RemoveFriendUsecase
 import com.creativijaya.profilebook.presentation.base.BaseViewModel
 import com.creativijaya.profilebook.util.ext.orFalse
@@ -15,7 +16,8 @@ class DetailProfileViewModel(
     private val getDetailProfileUseCase: GetDetailProfileUseCase,
     private val addFriendUsecase: AddFriendUsecase,
     private val removeFriendUsecase: RemoveFriendUsecase,
-    private val checkIsFriendUseCase: CheckIsFriendUseCase
+    private val checkIsFriendUseCase: CheckIsFriendUseCase,
+    private val getUserPostUseCase: GetUserPostUseCase
 ) : BaseViewModel<DetailProfileState>(initialState) {
 
     init {
@@ -37,6 +39,16 @@ class DetailProfileViewModel(
                 getDetailProfileUseCase(state.userId)
             }.executeOnIo {
                 copy(profileDetailAsync = it)
+            }
+        }
+    }
+
+    fun getUserPost() {
+        withState { state ->
+            suspend {
+                getUserPostUseCase(state.userId)
+            }.executeOnIo {
+                copy(userPostAsync = it)
             }
         }
     }
@@ -82,13 +94,15 @@ class DetailProfileViewModel(
             val addFriendUsecase: AddFriendUsecase by viewModelContext.scopeInject()
             val removeFriendUsecase: RemoveFriendUsecase by viewModelContext.scopeInject()
             val checkIsFriendUseCase: CheckIsFriendUseCase by viewModelContext.scopeInject()
+            val getUserPostUseCase: GetUserPostUseCase by viewModelContext.scopeInject()
 
             return DetailProfileViewModel(
                 state,
                 getDetailProfileUseCase,
                 addFriendUsecase,
                 removeFriendUsecase,
-                checkIsFriendUseCase
+                checkIsFriendUseCase,
+                getUserPostUseCase
             )
         }
     }
