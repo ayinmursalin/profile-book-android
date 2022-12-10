@@ -11,6 +11,7 @@ import com.airbnb.mvrx.fragmentViewModel
 import com.creativijaya.profilebook.R
 import com.creativijaya.profilebook.databinding.FragmentDetailProfileBinding
 import com.creativijaya.profilebook.presentation.base.BaseFragment
+import com.creativijaya.profilebook.util.ext.clickWithDebounce
 import com.creativijaya.profilebook.util.ext.loadImageUrl
 import com.creativijaya.profilebook.util.widget.viewBinding
 
@@ -27,12 +28,17 @@ class DetailProfileFragment : BaseFragment(R.layout.fragment_detail_profile) {
         viewModel.getDetailProfile()
 
         subscribeToDetailProfile()
+        subscribeToIsFriend()
     }
 
     private fun setupLayout() {
         with(binding) {
             toolbarDetailProfile.setNavigationOnClickListener {
                 findNavController().popBackStack()
+            }
+
+            btnDetailProfileAddfriend.clickWithDebounce {
+                viewModel.toggleAddFriend()
             }
         }
     }
@@ -69,6 +75,21 @@ class DetailProfileFragment : BaseFragment(R.layout.fragment_detail_profile) {
                     }
                 }
                 is Fail -> handleError(async.error)
+            }
+        }
+    }
+
+    private fun subscribeToIsFriend() {
+        viewModel.onCommonAsync(DetailProfileState::isFriend) {
+            val (bg, icon) = if (it) {
+                R.drawable.bg_circle_blue to R.drawable.ic_friend
+            } else {
+                R.drawable.bg_circle_gray to R.drawable.ic_add_friend
+            }
+
+            binding.btnDetailProfileAddfriend.apply {
+                setBackgroundResource(bg)
+                setImageResource(icon)
             }
         }
     }

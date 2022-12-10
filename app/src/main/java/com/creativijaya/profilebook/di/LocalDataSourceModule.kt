@@ -30,7 +30,7 @@ val localDataSourceModule = module {
     }
 
     single {
-        get<AppDatabase>().getExampleDao()
+        get<AppDatabase>().getUser()
     }
 
 }

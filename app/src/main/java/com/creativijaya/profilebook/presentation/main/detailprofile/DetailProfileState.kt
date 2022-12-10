@@ -7,6 +7,7 @@ import com.creativijaya.profilebook.domain.models.user.ProfileDto
 
 data class DetailProfileState(
     val profileDetailAsync: Async<ProfileDto> = Uninitialized,
+    val isFriend: Async<Boolean> = Uninitialized,
     val userId: String
 ) : MavericksState {
     constructor(args: DetailProfileArgs) : this(
