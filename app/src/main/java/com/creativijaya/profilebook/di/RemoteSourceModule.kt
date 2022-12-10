@@ -24,7 +24,7 @@ val remoteDataSourceModule = module {
         val builder = OkHttpClient.Builder()
             .cache(get())
             .followSslRedirects(true)
-            .addInterceptor(AuthInterceptor(preferences = get()))
+            .addInterceptor(AuthInterceptor(appId = "6393ed1d65944d064b5243bd"))
 
         if (BuildConfig.DEBUG) {
             builder.addInterceptor(

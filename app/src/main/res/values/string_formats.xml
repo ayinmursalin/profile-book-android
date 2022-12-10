@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="format_dash">%s - %s</string>
+    <string name="format_full_name">%s. %s %s</string>
 </resources>

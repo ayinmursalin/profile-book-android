@@ -70,7 +70,7 @@
     </style>
 
     <style name="CommonRoundedImageView">
-        <item name="cornerSize">15%</item>
+        <item name="cornerSize">@dimen/space_x1</item>
     </style>
 
     <!--Tab-->

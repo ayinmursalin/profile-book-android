@@ -3,14 +3,14 @@ package com.creativijaya.profilebook.domain.mapper
 import com.creativijaya.profilebook.data.network.responses.base.BasePaginationResponse
 import com.creativijaya.profilebook.data.network.responses.main.MainProfileResponse
 import com.creativijaya.profilebook.domain.models.base.BasePaginationDto
-import com.creativijaya.profilebook.domain.models.main.MainProfileDto
+import com.creativijaya.profilebook.domain.models.user.ProfileDto
 import com.creativijaya.profilebook.util.ext.orZero
 
 class MainMapper {
 
     fun transformToProfileBookListDto(
         response: BasePaginationResponse<MainProfileResponse>
-    ): BasePaginationDto<MainProfileDto> {
+    ): BasePaginationDto<ProfileDto> {
         return BasePaginationDto(
             totalData = response.total.orZero(),
             page = response.page.orZero(),
@@ -20,7 +20,7 @@ class MainMapper {
 
     private fun transformToProfileBookDto(
         response: MainProfileResponse
-    ) = MainProfileDto(
+    ) = ProfileDto(
         id = response.id.orEmpty(),
         firstName = response.firstName.orEmpty(),
         lastName = response.lastName.orEmpty(),

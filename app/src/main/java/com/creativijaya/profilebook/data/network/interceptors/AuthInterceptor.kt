@@ -1,22 +1,17 @@
 package com.creativijaya.profilebook.data.network.interceptors
 
-import com.creativijaya.profilebook.data.local.prefs.AppPreferences
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class AuthInterceptor(
-    private val preferences: AppPreferences
+    private val appId: String
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val token = preferences.getToken()
-
         return chain.let {
             val builder = it.request().newBuilder()
 
-            if (token != null) {
-                builder.addHeader("Authorization", "Bearer $token")
-            }
+            builder.addHeader("app-id", appId)
 
             it.proceed(builder.build())
         }

@@ -10,4 +10,5 @@
     <string name="common_text_select_date">Select Date</string>
     <string name="common_text_select_time">Select Time</string>
     <string name="common_text_select_year">Select Year</string>
+    <string name="text_profile_book">Profile Book</string>
 </resources>
