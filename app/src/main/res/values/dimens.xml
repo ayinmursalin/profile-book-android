@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_x0_half">4dp</dimen>
+    <dimen name="space_x1">8dp</dimen>
+    <dimen name="space_x1_half">12dp</dimen>
+    <dimen name="space_x2">16dp</dimen>
+    <dimen name="space_x2_half">20dp</dimen>
+    <dimen name="space_x3">24dp</dimen>
+    <dimen name="space_x3_half">28dp</dimen>
+    <dimen name="space_x4">32dp</dimen>
+    <dimen name="space_x4_half">36dp</dimen>
+    <dimen name="space_x5">40dp</dimen>
+    <dimen name="space_x5_half">44dp</dimen>
+    <dimen name="space_x6">48dp</dimen>
+    <dimen name="space_x6_half">52dp</dimen>
+    <dimen name="space_x7">56dp</dimen>
+    <dimen name="space_x7_half">60dp</dimen>
+    <dimen name="space_x8">64dp</dimen>
+    <dimen name="space_x8_half">68dp</dimen>
+
+    <!--Text Size-->
+    <dimen name="text_size_h1">36sp</dimen>
+    <dimen name="text_size_h2">32sp</dimen>
+    <dimen name="text_size_h3">28sp</dimen>
+    <dimen name="text_size_h4">24sp</dimen>
+    <dimen name="text_size_h5">18sp</dimen>
+    <dimen name="text_size_h6">16sp</dimen>
+    <dimen name="text_size_h7">15sp</dimen>
+    <dimen name="text_size_p">14sp</dimen>
+    <dimen name="text_size_s">12sp</dimen>
+
+    <!--Special Size-->
+    <dimen name="button_min_width">80dp</dimen>
+    <dimen name="text_size_title_login">54sp</dimen>
+    <dimen name="size_0dp">0dp</dimen>
+    <dimen name="size_1px">1px</dimen>
+    <dimen name="size_1dp">1dp</dimen>
+    <dimen name="size_2dp">2dp</dimen>
+</resources>

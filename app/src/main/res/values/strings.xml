@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Single Module MvRx</string>
+
+    <string name="common_text_save">Save</string>
+    <string name="common_text_search">Keyword</string>
+    <string name="common_text_cancel">Cancel</string>
+    <string name="common_text_continue">Continue</string>
+    <string name="common_text_note">Note</string>
+    <string name="common_hint_checklist_note">Add note</string>
+    <string name="common_text_select_date">Select Date</string>
+    <string name="common_text_select_time">Select Time</string>
+    <string name="common_text_select_year">Select Year</string>
+</resources>

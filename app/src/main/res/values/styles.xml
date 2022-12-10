@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Bottom Sheet-->
+    <style name="RoundedSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/common_bg_dialog_rounded</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="bottomSheetStyle">@style/RoundedSheetStyle</item>
+    </style>
+
+    <!--Dialog-->
+    <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog.Bridge">
+        <item name="dialogCornerRadius">@dimen/space_x2</item>
+    </style>
+
+    <!--Button-->
+    <style name="CommonButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="textAllCaps">false</item>
+        <item name="backgroundTint">@color/common_color_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">@dimen/space_x8</item>
+        <item name="rippleColor">?colorControlHighlight</item>
+    </style>
+
+    <style name="CommonButton.Medium">
+        <item name="android:minHeight">@dimen/space_x6</item>
+    </style>
+
+    <style name="CommonButton.Big">
+        <item name="android:minHeight">@dimen/space_x7</item>
+    </style>
+
+    <style name="CommonButton.Secondary">
+        <item name="backgroundTint">@color/common_color_button_secondary</item>
+    </style>
+
+    <style name="CommonButton.Negative">
+        <item name="backgroundTint">@color/common_color_button_negative</item>
+    </style>
+
+    <style name="CommonButton.Medium.Negative">
+        <item name="android:minHeight">@dimen/space_x6</item>
+        <item name="backgroundTint">@color/common_color_button_negative</item>
+    </style>
+
+    <style name="CommonTextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <!--Text Input Layout-->
+    <style name="CommonTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/space_x3</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/space_x3</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/space_x3</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/space_x3</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="startIconTint">@color/soft_gray</item>
+    </style>
+
+    <!--Image View-->
+    <style name="CommonCircleImageView">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CommonRoundedImageView">
+        <item name="cornerSize">15%</item>
+    </style>
+
+    <!--Tab-->
+    <style name="CommonTab" parent="TextAppearance.AppCompat.Small">
+        <item name="textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--Card View-->
+    <style name="CommonTopRoundedCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/space_x2</item>
+        <item name="cornerSizeTopRight">@dimen/space_x2</item>
+    </style>
+
+</resources>
