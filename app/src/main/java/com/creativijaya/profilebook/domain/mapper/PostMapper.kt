@@ -51,7 +51,8 @@ class PostMapper {
             profileId = dto.owner.id,
             firstName = dto.owner.firstName,
             lastName = dto.owner.lastName,
-            gender = dto.owner.gender
+            gender = dto.owner.gender,
+            picture = dto.owner.picture
         )
     )
 
@@ -59,7 +60,7 @@ class PostMapper {
         entities: List<PostEntity>?
     ) = entities?.map(::transformToPostDto).orEmpty()
 
-    fun transformToPostDto(
+    private fun transformToPostDto(
         entity: PostEntity
     ) = PostDto(
         id = entity.postId.orEmpty(),
@@ -72,7 +73,8 @@ class PostMapper {
             id = entity.owner?.profileId.orEmpty(),
             firstName = entity.owner?.firstName.orEmpty(),
             lastName = entity.owner?.lastName.orEmpty(),
-            gender = entity.owner?.gender.orEmpty()
+            gender = entity.owner?.gender.orEmpty(),
+            picture = entity.owner?.picture.orEmpty()
         )
     )
 

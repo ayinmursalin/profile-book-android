@@ -19,8 +19,8 @@ class PostRepositoryImpl(
         dao.addFavoritePost(postEntity)
     }
 
-    override fun checkIsFavorite(postId: String): Flow<List<PostEntity>> {
-        return dao.checkIsFavorite(postId)
+    override suspend fun removeFavoritePost(postId: String) {
+        dao.removeFavoritePost(postId)
     }
 
     override fun getFavoritePost(): Flow<MutableList<PostEntity>> {

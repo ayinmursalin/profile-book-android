@@ -4,5 +4,6 @@ data class PostProfileEntity(
     val profileId: String? = null,
     val firstName: String? = null,
     val lastName: String? = null,
-    val gender: String? = null
+    val gender: String? = null,
+    val picture: String? = null
 )

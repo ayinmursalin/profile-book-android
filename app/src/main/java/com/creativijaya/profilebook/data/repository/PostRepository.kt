@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface PostRepository {
     suspend fun getPosts(page: Int, pageSize: Int = 20): BasePaginationResponse<PostResponse>
     suspend fun addFavoritePost(postEntity: PostEntity)
-    fun checkIsFavorite(postId: String): Flow<List<PostEntity>>
+    suspend fun removeFavoritePost(postId: String)
     fun getFavoritePost(): Flow<MutableList<PostEntity>>
 }

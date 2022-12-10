@@ -12,8 +12,8 @@ interface PostDao {
     @Insert
     suspend fun addFavoritePost(postEntity: PostEntity)
 
-    @Query("SELECT * FROM posts WHERE post_id = :postId")
-    fun checkIsFavorite(postId: String): Flow<MutableList<PostEntity>>
+    @Query("DELETE FROM posts WHERE post_id = :postId")
+    suspend fun removeFavoritePost(postId: String)
 
     @Query("SELECT * FROM posts")
     fun getFavoritePost(): Flow<MutableList<PostEntity>>

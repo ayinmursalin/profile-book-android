@@ -1,9 +1,9 @@
 package com.creativijaya.profilebook.di
 
 import com.creativijaya.profilebook.domain.usecases.post.AddFavoritePostUseCase
-import com.creativijaya.profilebook.domain.usecases.post.CheckIsFavoritePostUseCase
 import com.creativijaya.profilebook.domain.usecases.post.GetFavoritePostUseCase
 import com.creativijaya.profilebook.domain.usecases.post.GetPostUseCase
+import com.creativijaya.profilebook.domain.usecases.post.RemoveFavoritePostUseCase
 import com.creativijaya.profilebook.domain.usecases.user.AddFriendUsecase
 import com.creativijaya.profilebook.domain.usecases.user.CheckIsFriendUseCase
 import com.creativijaya.profilebook.domain.usecases.user.GetDetailProfileUseCase
@@ -47,7 +47,7 @@ val interactorModule = module {
     }
 
     single {
-        CheckIsFavoritePostUseCase(get())
+        RemoveFavoritePostUseCase(get())
     }
 
     single {
