@@ -18,4 +18,5 @@
     <string name="text_email">Email</string>
     <string name="text_address">Address</string>
     <string name="text_posts">Posts</string>
+    <string name="text_favorite_posts">Favorite Posts</string>
 </resources>

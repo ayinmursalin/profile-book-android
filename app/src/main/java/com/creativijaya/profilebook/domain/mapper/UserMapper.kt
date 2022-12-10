@@ -2,6 +2,7 @@ package com.creativijaya.profilebook.domain.mapper
 
 import androidx.room.ColumnInfo
 import com.creativijaya.profilebook.data.local.db.entities.user.FriendEntity
+import com.creativijaya.profilebook.data.local.db.entities.user.LocationEntity
 import com.creativijaya.profilebook.data.network.responses.base.BasePaginationResponse
 import com.creativijaya.profilebook.data.network.responses.user.LocationResponse
 import com.creativijaya.profilebook.data.network.responses.user.ProfileResponse
@@ -63,11 +64,13 @@ class UserMapper {
         updatedDate = dto.updatedDate,
         email = dto.email,
         registerDate = dto.registerDate,
-        country = dto.location.country,
-        city = dto.location.city,
-        street = dto.location.street,
-        timezone = dto.location.timezone,
-        state = dto.location.state
+        locationEntity = LocationEntity(
+            country = dto.location.country,
+            city = dto.location.city,
+            street = dto.location.street,
+            timezone = dto.location.timezone,
+            state = dto.location.state
+        )
     )
 
 }

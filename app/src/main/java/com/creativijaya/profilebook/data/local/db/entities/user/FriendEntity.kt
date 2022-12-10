@@ -1,6 +1,7 @@
 package com.creativijaya.profilebook.data.local.db.entities.user
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -31,14 +32,6 @@ data class FriendEntity(
     val email: String? = null,
     @ColumnInfo(name = "registerDate")
     val registerDate: String? = null,
-    @ColumnInfo(name = "country")
-    val country: String? = null,
-    @ColumnInfo(name = "city")
-    val city: String? = null,
-    @ColumnInfo(name = "street")
-    val street: String? = null,
-    @ColumnInfo(name = "timezone")
-    val timezone: String? = null,
-    @ColumnInfo(name = "state")
-    val state: String? = null
+    @Embedded
+    val locationEntity: LocationEntity? = null,
 )

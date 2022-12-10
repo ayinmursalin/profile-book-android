@@ -16,6 +16,7 @@ import com.creativijaya.profilebook.databinding.ItemPostLoadingBinding
 import com.creativijaya.profilebook.databinding.ItemPostTagBinding
 import com.creativijaya.profilebook.domain.models.post.PostDto
 import com.creativijaya.profilebook.presentation.base.BaseFragment
+import com.creativijaya.profilebook.util.ext.clickWithDebounce
 import com.creativijaya.profilebook.util.ext.loadImageUrl
 import com.creativijaya.profilebook.util.ext.toGone
 import com.creativijaya.profilebook.util.ext.toVisible
@@ -112,6 +113,10 @@ class PostFragment : BaseFragment(R.layout.fragment_post) {
             }
         ).apply {
             setData(data.tags)
+        }
+
+        btnItemPostLike.clickWithDebounce {
+            viewModel.addFavoritePost(data)
         }
     }
 

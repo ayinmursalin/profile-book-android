@@ -1,5 +1,7 @@
 package com.creativijaya.profilebook.domain.mapper
 
+import com.creativijaya.profilebook.data.local.db.entities.post.PostEntity
+import com.creativijaya.profilebook.data.local.db.entities.post.PostProfileEntity
 import com.creativijaya.profilebook.data.network.responses.base.BasePaginationResponse
 import com.creativijaya.profilebook.data.network.responses.post.PostResponse
 import com.creativijaya.profilebook.data.network.responses.user.ProfileResponse
@@ -34,6 +36,44 @@ class PostMapper {
         text = response?.text.orEmpty(),
         likes = response?.likes.orZero(),
         tags = response?.tags.orEmpty()
+    )
+
+    fun transformToPostEntity(
+        dto: PostDto
+    ) = PostEntity(
+        postId = dto.id,
+        image = dto.image,
+        publishDate = dto.publishDate,
+        text = dto.text,
+        likes = dto.likes,
+        tags = dto.tags,
+        owner = PostProfileEntity(
+            profileId = dto.owner.id,
+            firstName = dto.owner.firstName,
+            lastName = dto.owner.lastName,
+            gender = dto.owner.gender
+        )
+    )
+
+    fun transformToPostListDto(
+        entities: List<PostEntity>?
+    ) = entities?.map(::transformToPostDto).orEmpty()
+
+    fun transformToPostDto(
+        entity: PostEntity
+    ) = PostDto(
+        id = entity.postId.orEmpty(),
+        image = entity.image.orEmpty(),
+        publishDate = entity.publishDate.orEmpty(),
+        text = entity.text.orEmpty(),
+        likes = entity.likes.orZero(),
+        tags = entity.tags.orEmpty(),
+        owner = ProfileDto(
+            id = entity.owner?.profileId.orEmpty(),
+            firstName = entity.owner?.firstName.orEmpty(),
+            lastName = entity.owner?.lastName.orEmpty(),
+            gender = entity.owner?.gender.orEmpty()
+        )
     )
 
 }

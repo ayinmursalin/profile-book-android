@@ -1,5 +1,8 @@
 package com.creativijaya.profilebook.di
 
+import com.creativijaya.profilebook.domain.usecases.post.AddFavoritePostUseCase
+import com.creativijaya.profilebook.domain.usecases.post.CheckIsFavoritePostUseCase
+import com.creativijaya.profilebook.domain.usecases.post.GetFavoritePostUseCase
 import com.creativijaya.profilebook.domain.usecases.post.GetPostUseCase
 import com.creativijaya.profilebook.domain.usecases.user.AddFriendUsecase
 import com.creativijaya.profilebook.domain.usecases.user.CheckIsFriendUseCase
@@ -37,6 +40,18 @@ val interactorModule = module {
 
     single {
         GetUserPostUseCase(get(), get(), get())
+    }
+
+    single {
+        AddFavoritePostUseCase(get(), get())
+    }
+
+    single {
+        CheckIsFavoritePostUseCase(get())
+    }
+
+    single {
+        GetFavoritePostUseCase(get(), get())
     }
 
 }

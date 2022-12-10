@@ -33,4 +33,8 @@ val localDataSourceModule = module {
         get<AppDatabase>().getUser()
     }
 
+    single {
+        get<AppDatabase>().getPostDao()
+    }
+
 }
