@@ -2,4 +2,5 @@
 <resources>
     <string name="format_dash">%s - %s</string>
     <string name="format_full_name">%s. %s %s</string>
+    <string name="format_likes">%d Likes</string>
 </resources>

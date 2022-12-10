@@ -17,4 +17,5 @@
     <string name="text_join_from">Join From</string>
     <string name="text_email">Email</string>
     <string name="text_address">Address</string>
+    <string name="text_posts">Posts</string>
 </resources>

@@ -17,6 +17,7 @@
     <dimen name="space_x7_half">60dp</dimen>
     <dimen name="space_x8">64dp</dimen>
     <dimen name="space_x8_half">68dp</dimen>
+    <dimen name="space_x10">80dp</dimen>
 
     <!--Text Size-->
     <dimen name="text_size_h1">36sp</dimen>
@@ -33,6 +34,7 @@
     <dimen name="button_min_width">80dp</dimen>
     <dimen name="text_size_title_login">54sp</dimen>
     <dimen name="profile_picture_height">96dp</dimen>
+    <dimen name="backdrop_height">120dp</dimen>
     <dimen name="size_0dp">0dp</dimen>
     <dimen name="size_1px">1px</dimen>
     <dimen name="size_1dp">1dp</dimen>

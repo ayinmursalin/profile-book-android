@@ -21,20 +21,20 @@ class UserMapper {
     }
 
     fun transformToDetailProfileDto(
-        response: ProfileResponse
+        response: ProfileResponse?
     ) = ProfileDto(
-        id = response.id.orEmpty(),
-        firstName = response.firstName.orEmpty(),
-        lastName = response.lastName.orEmpty(),
-        title = response.title.orEmpty(),
-        picture = response.picture.orEmpty(),
-        gender = response.gender.orEmpty(),
-        phone = response.phone.orEmpty(),
-        dateOfBirth = response.dateOfBirth.orEmpty(),
-        updatedDate = response.updatedDate.orEmpty(),
-        email = response.email.orEmpty(),
-        registerDate = response.registerDate.orEmpty(),
-        location = transformToLocationDto(response.location),
+        id = response?.id.orEmpty(),
+        firstName = response?.firstName.orEmpty(),
+        lastName = response?.lastName.orEmpty(),
+        title = response?.title.orEmpty(),
+        picture = response?.picture.orEmpty(),
+        gender = response?.gender.orEmpty(),
+        phone = response?.phone.orEmpty(),
+        dateOfBirth = response?.dateOfBirth.orEmpty(),
+        updatedDate = response?.updatedDate.orEmpty(),
+        email = response?.email.orEmpty(),
+        registerDate = response?.registerDate.orEmpty(),
+        location = transformToLocationDto(response?.location),
     )
 
     private fun transformToLocationDto(

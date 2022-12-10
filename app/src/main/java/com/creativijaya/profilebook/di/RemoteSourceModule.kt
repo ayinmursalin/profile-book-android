@@ -4,6 +4,7 @@ import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.creativijaya.profilebook.BuildConfig
 import com.creativijaya.profilebook.data.network.interceptors.AuthInterceptor
+import com.creativijaya.profilebook.data.network.services.PostService
 import com.creativijaya.profilebook.data.network.services.UserService
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
@@ -53,6 +54,10 @@ val remoteDataSourceModule = module {
 
     single<UserService> {
         get<Retrofit>().create(UserService::class.java)
+    }
+
+    single<PostService> {
+        get<Retrofit>().create(PostService::class.java)
     }
 
 }

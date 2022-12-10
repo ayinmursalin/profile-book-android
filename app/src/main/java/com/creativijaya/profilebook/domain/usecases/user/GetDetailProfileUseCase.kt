@@ -1,4 +1,4 @@
-package com.creativijaya.profilebook.domain.usecases
+package com.creativijaya.profilebook.domain.usecases.user
 
 import com.creativijaya.profilebook.data.repository.UserRepository
 import com.creativijaya.profilebook.domain.mapper.UserMapper

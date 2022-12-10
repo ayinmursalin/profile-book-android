@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_x1_half"
+    android:layout_marginBottom="@dimen/space_x1_half"
+    android:background="@drawable/bg_rounded_white"
+    android:padding="@dimen/space_x1_half">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_post_user_picture"
+        android:layout_width="@dimen/space_x5_half"
+        android:layout_height="@dimen/space_x5_half"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CommonCircleImageView"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_item_post_user_name"
+        android:layout_width="@dimen/size_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_x1"
+        android:textColor="@color/text_color_primary"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_item_post_user_picture"
+        app:layout_constraintTop_toTopOf="@id/iv_item_post_user_picture"
+        tools:text="Mr. M Moersalin" />
+
+    <TextView
+        android:id="@+id/tv_item_post_post_date"
+        android:layout_width="@dimen/size_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_x1"
+        android:layout_marginTop="@dimen/space_x0_half"
+        android:textColor="@color/text_color_secondary"
+        android:textSize="@dimen/text_size_s"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_item_post_user_picture"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_post_user_name"
+        tools:text="Mr. M Moersalin" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_post_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/backdrop_height"
+        android:layout_marginHorizontal="@dimen/space_x6"
+        android:layout_marginTop="@dimen/space_x1_half"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_post_user_picture"
+        app:shapeAppearanceOverlay="@style/CommonRoundedImageView"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_item_post_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x2"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_x1_half"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_post_backdrop"
+        tools:listitem="@layout/item_post_tag" />
+
+    <TextView
+        android:id="@+id/tv_item_post_description"
+        android:layout_width="@dimen/size_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_x1_half"
+        android:layout_marginTop="@dimen/space_x1"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:textColor="@color/text_color_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_item_post_tags"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" />
+
+    <ImageButton
+        android:id="@+id/btn_item_post_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_x2"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_favorite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_post_description"
+        app:tint="@color/soft_gray"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_item_post_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_x2"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toBottomOf="@id/btn_item_post_like"
+        app:layout_constraintEnd_toStartOf="@id/btn_item_post_like"
+        app:layout_constraintTop_toTopOf="@id/btn_item_post_like"
+        tools:text="30 Likes" />
+</androidx.constraintlayout.widget.ConstraintLayout>
